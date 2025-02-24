@@ -52,7 +52,7 @@ public class TabularQLearningAgent<State: Hashable & Codable, Action: Hashable &
         let newQ = currentQ + alpha * (reward + gamma * maxNextQ - currentQ)
 
         if Q[state] == nil {
-            Q[state] = [:]  // Initialize if it doesn't exist
+            Q[state] = [:]
         }
         Q[state]![action] = newQ
     }
