@@ -94,24 +94,6 @@ public class LinearQLearningAgent<State: Hashable & Codable, Action: Hashable & 
         weights[action] = w
     }
     
-    public func train(
-        episodes: Int,
-        initialState: () -> State,
-        getNextState: (State, Action) -> State,
-        getReward: (State, Action, State) -> Double,
-        isTerminal: (State) -> Bool
-    ) {
-        for _ in 0..<episodes {
-            var state = initialState()
-            while !isTerminal(state) {
-                let action = getAction(for: state)
-                let nextState = getNextState(state, action)
-                let reward = getReward(state, action, nextState)
-                updateQValue(for: state, action: action, reward: reward, nextState: nextState)
-                state = nextState
-            }
-        }
-    }
     
   
     public func saveWeights(to fileURL: URL) {

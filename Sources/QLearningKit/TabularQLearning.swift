@@ -57,28 +57,6 @@ public class TabularQLearningAgent<State: Hashable & Codable, Action: Hashable &
         Q[state]![action] = newQ
     }
 
-    public func train(
-        episodes: Int,
-        initialState: () -> State,
-        getNextState: (State, Action) -> State,
-        getReward: (State, Action, State) -> Double,
-        isTerminal: (State) -> Bool
-    ) {
-        for _ in 0..<episodes {
-            var state = initialState()
-            var step = 0
-            while !isTerminal(state) && step < 1000 {
-                let action = chooseAction(for: state)
-                let nextState = getNextState(state, action)
-                let reward = getReward(state, action, nextState)
-
-                updateQValue(for: state, action: action, reward: reward, nextState: nextState)
-
-                state = nextState
-                step += 1
-            }
-        }
-    }
 
     public func saveQTable(to fileURL: URL) {
         let encoder = JSONEncoder()
