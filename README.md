@@ -1,6 +1,9 @@
 
 # **QLearningKit**  – A Swift Package for Q-Learning  
 
+[![Swift](https://img.shields.io/badge/Swift-5.7-orange.svg)](https://swift.org)  
+[![Platforms](https://img.shields.io/badge/platforms-macOS%20|%20iOS%20|%20tvOS%20|%20watchOS-blue.svg)](https://developer.apple.com)  
+
 QLearningKit provides an easy-to-use implementation of **Q-learning** in Swift, offering two types of agents:  
 
 - **Tabular Q-Learning Agent** – Best for small, discrete state spaces.  
